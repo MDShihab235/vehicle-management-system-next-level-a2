@@ -6,9 +6,7 @@ const auth = (...roles: string[]) => {
   return (req: Request, res: Response, next: NextFunction) => {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      return res
-        .status(401)
-        .json({ message: "Missing or invalid Authorization header" });
+      return res.status(401).json({ message: "You are not allowed !!!" });
     }
 
     const token: any = authHeader.split(" ")[1];
