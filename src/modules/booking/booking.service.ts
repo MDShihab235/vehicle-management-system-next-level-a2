@@ -58,8 +58,14 @@ const updateBooking = async (
   );
   return result;
 };
+
+const deleteBooking = async (id: any) => {
+  const result = await pool.query(`DELETE FROM bookings WHERE id = $1`, [id]);
+  return result;
+};
 export const bookingServices = {
   createBooking,
   getBookings,
   updateBooking,
+  deleteBooking,
 };
